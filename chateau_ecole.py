@@ -23,7 +23,7 @@ def ajouter_inventaire(objet):
                 inventaire.remove(tshirt)
                 inventaire.append(objet)
                 print("Vous avez remplace", tshirt," par ",objet)
-                return  # Pas d'ajout de points, on sort de la fonction
+                return  
 
     if objet not in inventaire:
         inventaire.append(objet)
@@ -83,6 +83,7 @@ def valider_reponse(max_choix, message="Que voulez-vous faire ? "):
             print("Entree invalide.... macaque !")
 
 def cl_latin():
+    print("")
     print("salle de latin")
     print("les sorties sont : 1. Couloir 2e 2. Examiner")
     commande = valider_reponse(2)
@@ -92,6 +93,7 @@ def cl_latin():
         print("examiner")
 
 def couloir2e():
+    print("")
     print("Couloir 2e etage")
     print("les sorties sont : 1.Classe Latin  2.Classe Sciences 3. Infirmerie 4.Escalier bas 5.Examiner")
     commande = valider_reponse(5)
@@ -107,6 +109,7 @@ def couloir2e():
         print("examiner")
 
 def cl_sciences():
+    print("")
     print("classe sciences : ferme !")
     print("les sorties sont : 1. Couloir 2e 2. Examiner")
     commande = valider_reponse(2)
@@ -116,6 +119,7 @@ def cl_sciences():
         print("examiner")
 
 def infirmerie():
+    print("")
     print("Infirmerie, infirmiere absente...")
     print("les sorties sont : 1. Couloir 2e 2. Examiner")
     commande = valider_reponse(2)
@@ -125,6 +129,7 @@ def infirmerie():
         print("examiner")          
 
 def couloir1e():
+    print("")
     print("Couloir 1er etage")
     print("les sorties sont : 1.Escalier haut 2.Escalier bas  3.Classe Maths 4. Classe Français 5. Classe Histoire 6.Toilettes")
     commande = valider_reponse(6)
@@ -142,6 +147,7 @@ def couloir1e():
         toilettes()
 
 def cl_maths():
+    print("")
     print("Classe de maths...")
     print("les sorties sont : 1. Couloir 2. Examiner")
     commande = valider_reponse(2)
@@ -151,7 +157,8 @@ def cl_maths():
         print("examiner") 
 
 def cl_francais():
-    print("classe de francais: fermer !")
+    print("")
+    print("classe de francais: fermee !")
     print("les sorties sont : 1.couloir 2. Examiner")
     commande = valider_reponse(2)
     if commande == "1":
@@ -160,6 +167,7 @@ def cl_francais():
         print("Examiner")
 
 def cl_histoire():
+    print("")
     print("classe d'histoire...")
     print("les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
@@ -169,6 +177,7 @@ def cl_histoire():
         print("Examiner")
 
 def toilettes():
+    print("")
     print("les toilettes...")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
@@ -178,6 +187,7 @@ def toilettes():
         print("Examiner")
 
 def couloir_rdc():
+    print("")
     print("Couloir RDC")
     print("Les sorties sont : 1.Escaliers 2.Classe 6e 3.Salle des profs 4. Salle Techno 5.Sous-sol 6.Cour extérieure")    
     commande = valider_reponse(6)
@@ -194,7 +204,18 @@ def couloir_rdc():
     else:
         cour()    
 
+def cl_techno():
+    print("")
+    print("Classe de Techno")
+    print("Les sorties sont : 1.couloir 2.Examiner")
+    commande = valider_reponse(2)
+    if commande == "1":
+        couloir_rdc()
+    else:
+        print("Examiner")      
+
 def sous_sol():
+    print("")
     print("Sous-sol de l'ecole")
     print("Les sorties sont : 1.Escaliers 2.Classe Anglais 3.Classe Musique")
     commande = valider_reponse(3)
@@ -206,6 +227,7 @@ def sous_sol():
         cl_musique()    
 
 def cl_english():
+    print("")
     print("Classe d'Anglais")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
@@ -215,6 +237,7 @@ def cl_english():
         print("Examiner")    
 
 def cl_musique():
+    print("")
     print("Classe de musique")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
@@ -224,6 +247,7 @@ def cl_musique():
         print("Examiner")   
 
 def cl_6e():
+    print("")
     print("Classe 6eme")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
@@ -233,6 +257,7 @@ def cl_6e():
         print("Examiner")
 
 def salleprofs():
+    print("")
     print("Salle des profs")
     print("Les sorties sont : 1.couloir 2.Bureau Proviseur 3.Examiner")
     commande = valider_reponse(3)
@@ -244,6 +269,7 @@ def salleprofs():
         print("Examiner")
 
 def bureaupro():
+    print("")
     print("Bureau du Proviseur")
     print("Les sorties sont : 1.Salle des profs 2.Examiner")
     commande = valider_reponse(2)
@@ -254,6 +280,7 @@ def bureaupro():
 
 
 def cour():
+    print("")
     print("la cour...")
     print("les sorties sont : 1.aumonerie 2.portail 3.gymnase 4.cantine 5.examiner")
     commande = valider_reponse(5)
@@ -269,17 +296,19 @@ def cour():
         print("Examiner")
 
 def aumonerie():
+    print("")
     print("aumonerie...")
-    print("les sorties sont : 1.couloir 2.Passage sous-terrain 3.examiner")
+    print("les sorties sont : 1.cour exterieure 2.Passage sous-terrain 3.examiner")
     commande = valider_reponse(3)
     if commande == "1":
-        couloir_rdc()
+        cour()
     elif commande == "2":
         passagesousterrain()
     else:
         print("Examiner")
 
 def portail():
+    print("")
     print("portail...")
     print("les sorties sont : 1.Cour 2.examiner")
     commande = valider_reponse(2)
@@ -289,6 +318,7 @@ def portail():
         print("Examiner")
 
 def gymnase():
+    print("")
     print("gymnase...")
     print("les sorties sont : 1.Cour 2.examiner")
     commande = valider_reponse(2)
@@ -298,9 +328,25 @@ def gymnase():
         print("Examiner")
 
 def passagesousterrain():
+    print("")
     print("Passage dans le noir, sous-terrain")
+    print("les sorties sont : 1.Eglise 2.Aumonerie")
+    commande = valider_reponse(2)
+    if commande == "1":
+        eglise()
+    else:
+        aumonerie()
+        
 
 def eglise():
+    print("")
     print("Eglise St Leger")
+    print("les sorties sont : 1.Passage sous-terrain 2.Examiner")
+    commande = valider_reponse(2)
+    if commande == "1":
+        passagesousterrain()
+    else:
+        print("Examiner")    
+
 
 jeu()
