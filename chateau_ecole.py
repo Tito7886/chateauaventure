@@ -1,3 +1,10 @@
+import pygame
+
+pygame.init()
+pygame.mixer.init()
+
+son_latin = pygame.mixer.Sound("son_latin.wav")
+
 inventaire = []
 suivi_aventure = []
 score = 0
@@ -82,19 +89,25 @@ def valider_reponse(max_choix, message="Que voulez-vous faire ? "):
             score -= 2
             print("Entree invalide.... macaque !")
 
-def cl_latin():
+def cl_latin(option=None):
     print("")
-    print("salle de latin")
+    if option == None:
+        print("salle de latin")
+        sound = pygame.mixer.Sound(son_latin)
+        sound.play()
     print("les sorties sont : 1. Couloir 2e 2. Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir2e()
     else:
-        print("examiner")
+        print("examiner la classe de latin")
+        print("attention lire 2 fois un livre peut faire mourir d'ennui")
+        cl_latin(1)
 
-def couloir2e():
+def couloir2e(option=None):
     print("")
-    print("Couloir 2e etage")
+    if option == None:
+        print("Couloir 2e etage")
     print("les sorties sont : 1.Classe Latin  2.Classe Sciences 3. Infirmerie 4.Escalier bas 5.Examiner")
     commande = valider_reponse(5)
     if commande == "1":
@@ -106,29 +119,36 @@ def couloir2e():
     elif commande =="4":
         couloir1e()
     else:
-        print("examiner")
+        print("Vous examinez le couloir... tiens une photo...")
+        print("")
+        couloir2e(1)
 
-def cl_sciences():
+def cl_sciences(option=None):
     print("")
-    print("classe sciences : ferme !")
+    if option == None:
+        print("classe sciences : ferme !")
     print("les sorties sont : 1. Couloir 2e 2. Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir2e()
     else:
-        print("examiner")
+        print("examiner, trouver masque a gaz")
+        print("")
+        cl_sciences(1)
 
-def infirmerie():
+def infirmerie(option=None):
     print("")
-    print("Infirmerie, infirmiere absente...")
+    if option == None:
+        print("Infirmerie, infirmiere absente...")
     print("les sorties sont : 1. Couloir 2e 2. Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir2e()
     else:
-        print("examiner")          
+        print("Des bandages a trouver...")
+        infirmerie(1)
 
-def couloir1e():
+def couloir1e(option=None):
     print("")
     print("Couloir 1er etage")
     print("les sorties sont : 1.Escalier haut 2.Escalier bas  3.Classe Maths 4. Classe Français 5. Classe Histoire 6.Toilettes")
@@ -146,47 +166,60 @@ def couloir1e():
     else:
         toilettes()
 
-def cl_maths():
+def cl_maths(option=None):
     print("")
-    print("Classe de maths...")
+    if option == None:
+        print("Classe de maths...")
     print("les sorties sont : 1. Couloir 2. Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir1e()
     else:
-        print("examiner") 
+        print("Indice pour ouvrir la classe de Sciences")
+        cl_maths(1)
 
-def cl_francais():
+def cl_francais(option=None):
     print("")
-    print("classe de francais: fermee !")
+    if option == None:
+        print("classe de francais: fermee !")
     print("les sorties sont : 1.couloir 2. Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir1e()
     else:
-        print("Examiner")
+        print("Vous examinez la classe de francais")
+        print("faire un passage secret vers classe Histoire")
+        print("")
+        cl_francais(1)
 
-def cl_histoire():
+def cl_histoire(option=None):
     print("")
-    print("classe d'histoire...")
+    if option == None:
+        print("classe d'histoire...")
     print("les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir1e()
     else:
         print("Examiner")
+        print("Histoire sur le lycée, salle de torture ?! en sous-sol, aumonerie ?")
+        cl_histoire(1)
 
-def toilettes():
+def toilettes(option=None):
     print("")
-    print("les toilettes...")
+    if option == None:
+        print("les toilettes...")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir1e()
     else:
         print("Examiner")
+        print("Masque a gaz sinon mort en regardant les wc")
+        print("une clef dans les wc")
+        toilettes(1)
 
-def couloir_rdc():
+def couloir_rdc(option=None):
     print("")
     print("Couloir RDC")
     print("Les sorties sont : 1.Escaliers 2.Classe 6e 3.Salle des profs 4. Salle Techno 5.Sous-sol 6.Cour extérieure")    
@@ -204,17 +237,20 @@ def couloir_rdc():
     else:
         cour()    
 
-def cl_techno():
+def cl_techno(option=None):
     print("")
-    print("Classe de Techno")
+    if option == None:
+        print("Classe de Techno")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir_rdc()
     else:
-        print("Examiner")      
+        print("Examiner")
+        print("Chargeur de telephone!")
+        cl_techno(1)
 
-def sous_sol():
+def sous_sol(option=None):
     print("")
     print("Sous-sol de l'ecole")
     print("Les sorties sont : 1.Escaliers 2.Classe Anglais 3.Classe Musique")
@@ -226,39 +262,49 @@ def sous_sol():
     else:
         cl_musique()    
 
-def cl_english():
+def cl_english(option=None):
     print("")
-    print("Classe d'Anglais")
+    if option == None:
+        print("Classe d'Anglais")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         sous_sol()
     else:
-        print("Examiner")    
+        print("Examiner")
+        print("obtention d'un cours d'anglais.. tue le prof de sport")
+        cl_english(1)
 
-def cl_musique():
+def cl_musique(option=None):
     print("")
-    print("Classe de musique")
+    if option == None:
+        print("Classe de musique")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         sous_sol()
     else:
-        print("Examiner")   
+        print("Examiner")
+        print("recuperer partition de musique et medaillon")
+        cl_musique(1)
 
-def cl_6e():
+def cl_6e(option=None):
     print("")
-    print("Classe 6eme")
+    if option == None:
+        print("Classe 6eme")
     print("Les sorties sont : 1.couloir 2.Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         couloir_rdc()
     else:
         print("Examiner")
+        print("horde de zombies.. a voir...")
+        cl_6e(1)
 
-def salleprofs():
+def salleprofs(option=None):
     print("")
-    print("Salle des profs")
+    if option == None:
+        print("Salle des profs")
     print("Les sorties sont : 1.couloir 2.Bureau Proviseur 3.Examiner")
     commande = valider_reponse(3)
     if commande == "1":
@@ -267,23 +313,29 @@ def salleprofs():
         bureaupro()
     else:    
         print("Examiner")
+        print("Un surveillant a amadouer avec de la nourriture")
+        salleprofs(1)
 
-def bureaupro():
+def bureaupro(option=None):
     print("")
-    print("Bureau du Proviseur")
+    if option == None:
+        print("Bureau du Proviseur")
     print("Les sorties sont : 1.Salle des profs 2.Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         salleprofs()
     else:
-        print("Examiner")    
+        print("Examiner")
+        print("Une photo avec un indice sur le passage sous-terrain et la musique a trouver")
+        bureaupro(1)
 
 
-def cour():
+def cour(option=None):
     print("")
-    print("la cour...")
-    print("les sorties sont : 1.aumonerie 2.portail 3.gymnase 4.cantine 5.examiner")
-    commande = valider_reponse(5)
+    if option == None:
+        print("la cour...description")
+    print("les sorties sont : 1.Aumonerie 2.Portail 3.Gymnase 4.Cantine 5.Couloir RDC 6.Examiner")
+    commande = valider_reponse(6)
     if commande == "1":
         aumonerie()
     elif commande == "2":
@@ -292,12 +344,17 @@ def cour():
         gymnase()
     elif commande == "4":
         cantine()
+    elif commande == "5":
+        couloir_rdc()
     else:
         print("Examiner")
-
-def aumonerie():
+        print("peut etre des trucs sur une statue ou un arbre")
+        cour(1)
+        
+def aumonerie(option=None):
     print("")
-    print("aumonerie...")
+    if option == None:
+        print("aumonerie...")
     print("les sorties sont : 1.cour exterieure 2.Passage sous-terrain 3.examiner")
     commande = valider_reponse(3)
     if commande == "1":
@@ -305,29 +362,37 @@ def aumonerie():
     elif commande == "2":
         passagesousterrain()
     else:
-        print("Examiner")
+        print("Examiner, des blagues avec M Perrier")
+        aumonerie(1)        
 
-def portail():
+def portail(option=None):
     print("")
-    print("portail...")
+    if option == None:
+        print("portail...")
     print("les sorties sont : 1.Cour 2.examiner")
     commande = valider_reponse(2)
     if commande == "1":
         cour()
     else:
         print("Examiner")
+        portail(1)
 
-def gymnase():
+def gymnase(option=None):
     print("")
-    print("gymnase...")
+    if option ==  None:
+        print("gymnase...")
     print("les sorties sont : 1.Cour 2.examiner")
     commande = valider_reponse(2)
     if commande == "1":
         cour()
     else:
         print("Examiner")
+        print("un prof de sport à faire fuir, anglais...")
+        print("trouver des armes et des balles de tennis")
+        gymnase(1)
 
-def passagesousterrain():
+
+def passagesousterrain(option=None):
     print("")
     print("Passage dans le noir, sous-terrain")
     print("les sorties sont : 1.Eglise 2.Aumonerie")
@@ -338,15 +403,17 @@ def passagesousterrain():
         aumonerie()
         
 
-def eglise():
+def eglise(option=None):
     print("")
-    print("Eglise St Leger")
+    if option == None:
+        print("Eglise St Leger")
     print("les sorties sont : 1.Passage sous-terrain 2.Examiner")
     commande = valider_reponse(2)
     if commande == "1":
         passagesousterrain()
     else:
-        print("Examiner")    
-
+        print("Examiner")
+        print("un orgue avec une musique, un medaillon peut etre...")
+        eglise(1)
 
 jeu()
