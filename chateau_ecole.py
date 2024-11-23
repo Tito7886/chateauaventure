@@ -27,7 +27,7 @@ def ajouter_inventaire(objet):
 
     if objet not in inventaire:
         inventaire.append(objet)
-        print("\033[32mVous avez ajoute", objet,"a votre inventaire.\033[0m")
+        print("Vous avez ajoute", objet,"a votre inventaire.")
         score += 5
     else:
         print(objet," est deja dans votre inventaire.")
@@ -36,7 +36,7 @@ def jeu():
     print("Bienvenue dans la maison du grand N...")
     print("")
     print("Vous vous reveillez dans votre lit, un objet metallique vous gratte le dos.")
-    chambre_cha()
+    cl_francais()
 
 def finpartie():
     global score
@@ -49,14 +49,6 @@ def finpartie():
 def victoire():
     global score
     score += 20
-    print("")
-    print("Vous vous reveillez dans votre lit")
-    print("tout transpirant...")
-    print("Votre mere vous appelle pour aller a l'ecole.")
-    print("")
-    print("Encore un mauvais reve")
-    print("Une peluche... un diablotin vert... est contre votre oreille...")
-    print("Tandis que votre peluche preferee, Mr Nounours, est au sol")
     print("")
     print("Fin de l'aventure")
     print("ton score :", score," pts") 
@@ -189,7 +181,7 @@ def toilette():
 
 def cour():
     print("la cour...")
-    print("=les sorties sont : 1.aumonerie 2.portail 3.gymnase 4.cantine 5.examiner")
+    print("les sorties sont : 1.aumonerie 2.portail 3.gymnase 4.cantine 5.examiner")
     commande = valider_reponse(5)
     if commande == "1":
         aumonerie()
@@ -231,6 +223,7 @@ def gymnase():
     else:
         print("Examiner")
 
-def 
+def couloirRdc():
+    print("en cours")
 
 jeu()
