@@ -160,4 +160,77 @@ def cl_maths():
     else:
         print("examiner") 
 
+def cl_francais():
+    print("classe de francais: fermer !")
+    print("les sorties sont : 1.couloir 2. Examiner")
+    commande = valider_reponse(2)
+    if commande == "1":
+        couloir1e()
+    else:
+        print("Examiner")
+
+def cl_histoire():
+    print("classe d'histoire...")
+    print("les sorties sont : 1.couloir 2.Examiner")
+    commande = valider_reponse(2)
+    if commande == "1":
+        couloir1e()
+    else:
+        print("Examiner")
+
+def toilette():
+    print("les toilettes...")
+    print("Les sorties sont : 1.couloir 2.Examiner")
+    commande = valider_reponse(2)
+    if commande == "1":
+        couloir1e()
+    else:
+        print("Examiner")
+
+def cour():
+    print("la cour...")
+    print("=les sorties sont : 1.aumonerie 2.portail 3.gymnase 4.cantine 5.examiner")
+    commande = valider_reponse(5)
+    if commande == "1":
+        aumonerie()
+    elif commande == "2":
+        portail()
+    elif commande == "3":
+        gymnase()
+    elif commande == "4":
+        cantine()
+    else:
+        print("Examiner")
+
+def aumonerie():
+    print("aumonerie...")
+    print("les sorties sont : 1.couloir 2.Passage sous-terrain 3.examiner")
+    commande = valider_reponse(3)
+    if commande == "1":
+        couloirRdc()
+    elif commande == "2":
+        passagesousterain()
+    else:
+        print("Examiner")
+
+def portail():
+    print("portail...")
+    print("les sorties sont : 1.couloir 2.examiner")
+    commande = valider_reponse(2)
+    if commande == "1":
+        couloirRdc()
+    else:
+        print("Examiner")
+
+def gymnase():
+    print("gymnase...")
+    print("les sorties sont : 1.couloir 2.examiner")
+    commande = valider_reponse(2)
+    if commande == "1":
+        couloirRdc()
+    else:
+        print("Examiner")
+
+def 
+
 jeu()
