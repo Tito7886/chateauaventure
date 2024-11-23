@@ -50,7 +50,7 @@ def victoire():
     global score
     score += 20
     print("")
-    print("\033[32mVous vous reveillez dans votre lit\033[0m")
+    print("Vous vous reveillez dans votre lit")
     print("tout transpirant...")
     print("Votre mere vous appelle pour aller a l'ecole.")
     print("")
@@ -58,7 +58,7 @@ def victoire():
     print("Une peluche... un diablotin vert... est contre votre oreille...")
     print("Tandis que votre peluche preferee, Mr Nounours, est au sol")
     print("")
-    print("\033[32mFin de l'aventure\033[0m")
+    print("Fin de l'aventure")
     print("ton score :", score," pts") 
     print("") 
     rejouer()
@@ -91,5 +91,73 @@ def valider_reponse(max_choix, message="Que voulez-vous faire ? "):
         else:
             score -= 2
             print("Entree invalide.... macaque !")
+
+def cl_latin():
+    print("salle de latin")
+    print("les sorties sont : 1. Couloir 2e 2. Examiner")
+    commande = valider_reponse(2)
+    if comande == "1":
+        couloir2e()
+    else:
+        print("examiner")
+
+def couloir2e():
+    print("Couloir 2e etage")
+    print("les sorties sont : 1.Classe Latin  2.Classe Sciences 3. Infirmerie 4.Escalier bas 5.Examiner")
+    commande = valider_reponse(5)
+    if comande == "1":
+        cl_latin()
+    elif commande == "2":
+        cl_sciences()
+    elif commande == "3":
+        infirmerie()
+    elif commande =="4":
+        couloir1e()
+    else:
+        print("examiner")
+
+def cl_sciences():
+    print("classe sciences : ferme !")
+    print("les sorties sont : 1. Couloir 2e 2. Examiner")
+    commande = valider_reponse(2)
+    if comande == "1":
+        couloir2e()
+    else:
+        print("examiner")
+
+def infirmerie():
+    print("Infirmerie, infirmiere absente...")
+    print("les sorties sont : 1. Couloir 2e 2. Examiner")
+    commande = valider_reponse(2)
+    if comande == "1":
+        couloir2e()
+    else:
+        print("examiner")          
+
+def couloir1e():
+    print("Couloir 1er etage")
+    print("les sorties sont : 1.Escalier haut 2.Escalier bas  3.Classe Maths 4. Classe Français 5. Classe Histoire 6.Toilettes")
+    commande = valider_reponse(6)
+    if comande == "1":
+        couloir2e()
+    elif commande == "2":
+        couloir_rdc()
+    elif commande == "3":
+        cl_maths()
+    elif commande =="4":
+        cl_francais()
+    elif commande =="5":
+        cl_histoire()       
+    else:
+        toilettes()
+
+def cl_maths():
+    print("Classe de maths...")
+    print("les sorties sont : 1. Couloir 2. Examiner")
+    commande = valider_reponse(2)
+    if comande == "1":
+        couloir1e()
+    else:
+        print("examiner") 
 
 jeu()
