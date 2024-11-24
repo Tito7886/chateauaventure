@@ -1,9 +1,9 @@
-import pygame
+#import pygame
 
-pygame.init()
-pygame.mixer.init()
+#pygame.init()
+#pygame.mixer.init()
 
-son_latin = pygame.mixer.Sound("son_latin.wav")
+#son_latin = pygame.mixer.Sound("son_latin.wav")
 
 inventaire = []
 suivi_aventure = []
@@ -93,8 +93,8 @@ def cl_latin(option=None):
     print("")
     if option == None:
         print("salle de latin")
-        sound = pygame.mixer.Sound(son_latin)
-        sound.play()
+        #sound = pygame.mixer.Sound(son_latin)
+        #sound.play()
     print("les sorties sont : 1. Couloir 2e 2. Examiner")
     commande = valider_reponse(2)
     if commande == "1":
