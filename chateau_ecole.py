@@ -41,6 +41,7 @@ def ajouter_inventaire(objet):
 
 def jeu():
     print("Vous vous reveillez sur votre bureau de classe")
+    print("Première ligne\nDeuxième ligne")
     print("")
     print("Il n'y a plus personne dans la salle, les lumières sont éteintes...")
     print("")
